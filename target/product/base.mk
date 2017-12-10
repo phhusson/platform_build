@@ -139,7 +139,8 @@ PRODUCT_PACKAGES += \
 # Essential HAL modules
 PRODUCT_PACKAGES += \
     android.hardware.cas@1.0-service \
-    android.hardware.media.omx@1.0-service
+    android.hardware.media.omx@1.0-service \
+    android.hidl.base@1.0
 
 # XML schema files
 PRODUCT_PACKAGES += \
