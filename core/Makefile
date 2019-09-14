@@ -1345,6 +1345,7 @@ endif # PRODUCT_USE_DYNAMIC_PARTITIONS
 # $(3): additional "key=value" pairs to append to the dictionary file.
 define generate-image-prop-dictionary
 $(if $(filter $(2),system),\
+    $(if $(BOARD_SYSTEMIMAGE_AS_SYSTEM),$(hide) echo "system_as_system=$(BOARD_SYSTEMIMAGE_AS_SYSTEM)" >> $(1))
     $(if $(BOARD_SYSTEMIMAGE_PARTITION_SIZE),$(hide) echo "system_size=$(BOARD_SYSTEMIMAGE_PARTITION_SIZE)" >> $(1))
     $(if $(INTERNAL_SYSTEM_OTHER_PARTITION_SIZE),$(hide) echo "system_other_size=$(INTERNAL_SYSTEM_OTHER_PARTITION_SIZE)" >> $(1))
     $(if $(BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE),$(hide) echo "system_fs_type=$(BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE)" >> $(1))
