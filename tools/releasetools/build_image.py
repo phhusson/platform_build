@@ -157,6 +157,8 @@ def SetUpInDirAndFsConfig(origin_in, prop_dict):
 
   if prop_dict["mount_point"] != "system":
     return origin_in, fs_config
+  if "system_as_system" in prop_dict:
+    return origin_in, fs_config
 
   if "first_pass" in prop_dict:
     prop_dict["mount_point"] = "/"
@@ -564,6 +566,8 @@ def ImagePropFromGlobalDict(glob_dict, mount_point):
     if not copy_prop("system_extfs_rsv_pct", "extfs_rsv_pct"):
       d["extfs_rsv_pct"] = "0"
     copy_prop("system_reserved_size", "partition_reserved_size")
+
+    copy_prop("system_as_system", "system_as_system")
   elif mount_point == "system_other":
     # We inherit the selinux policies of /system since we contain some of its
     # files.
